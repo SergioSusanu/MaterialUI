@@ -16,31 +16,31 @@ export const NavbarItems = [
   {
     id: 2,
     label: "About",
-    route: "/",
+    route: "/about",
     icon: <PeopleAltIcon />,
   },
   {
     id: 3,
     label: "Menu",
-    route: "/",
+    route: "/menu",
     icon: <MenuBookIcon />,
   },
   {
     id: 4,
     label: "Reservations",
-    route: "/",
+    route: "/reservations",
     icon: <EventSeatIcon />,
   },
   {
     id: 5,
     label: "Order Online",
-    route: "/",
+    route: "/order",
     icon: <ShoppingCartIcon />,
   },
   {
     id: 6,
-    label: "Login",
-    route: "/",
+    label: "Contact",
+    route: "/contact",
     icon: <LoginIcon />,
   },
 ];
