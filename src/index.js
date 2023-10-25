@@ -5,22 +5,25 @@ import App from './App';
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import About from "./pages/About";
 import Menu from "./pages/Menu";
-import Home from "./pages/Home";
 import Order from "./pages/Order";
 import Reservations from "./pages/Reservations";
 import Contact from "./pages/Contact";
+import { ThemeProvider } from '@mui/material/styles';
+import { dashboardTheme } from './dashboardTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App/>}>
-        <Route path="about" element={<About />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="order" element={<Order />} />
-        <Route path="reservations" element={<Reservations />} />
-        <Route path="contact" element={<Contact />} />
-      </Route>
-    </Routes>
-  </BrowserRouter>
+  <ThemeProvider theme={dashboardTheme}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          <Route path="about" element={<About />} />
+          <Route path="menu" element={<Menu />} />
+          <Route path="order" element={<Order />} />
+          <Route path="reservations" element={<Reservations />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </ThemeProvider>
 );
