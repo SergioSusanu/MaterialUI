@@ -1,36 +1,26 @@
 import './App.css';
-import Navbar from './components/navbar/Navbar';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/Home'
-import About from "./pages/About";
-import Menu from "./pages/Menu";
-import Order from "./pages/Order";
-import Reservations from "./pages/Reservations";
-import Contact from "./pages/Contact";
+import Navbar from "./components/navbar/Navbar";
+import { Outlet } from "react-router-dom";
+import { Grid } from "@mui/material";
 
-const SharedLayout = () =>{
+
+const SharedLayout = () => {
   return (
-    <div className="App">
+    <Grid item xs={12} md={2}>
       <Navbar />
-    </div>
+    </Grid>
   );
-}
+};
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <Grid container>
       <SharedLayout />
-      <Routes>
-     
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/reservations" element={<Reservations />} />
-        <Route path="/contact" element={<Contact />} />
-    
-      </Routes>
-    </BrowserRouter>
+      <Grid item xs={12} md={10}>
+        <Outlet />
+      </Grid>
+    </Grid>
   );
 }
 

@@ -1,10 +1,9 @@
 import {AppStyles} from "../app/AppStyles";
 
-const drawerWidth = 240;
+ const drawerWidth = 240;
 
 export const NavBarStyles = {
   drawer: {
-    width: drawerWidth,
     flexShrink: 0,
     "& .MuiDrawer-paper": {
       width: drawerWidth,

@@ -1,9 +1,12 @@
+import { Grid } from '@mui/material'
 import React from 'react'
 
 const About = () => {
   return (
-    <div style={{marginLeft: "500px"}}>About</div>
-  )
+    <Grid item xs={12} md={10}>
+      About
+    </Grid>
+  );
 }
 
 export default About
