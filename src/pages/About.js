@@ -21,12 +21,16 @@ const About = () => {
 
   return (
     <div>
-      <NotificationBell badgeContent="2" color="secondary"
+      This is the about page
+      <NotificationBell color="secondary"
         onClick={handleOpen}
         anchorEl={anchorEl}
         handleClose={handleClose}
         open={open}
       />
+      <CommonButton variant="default">
+        Go to docs
+      </CommonButton>
     </div>
   );
 }

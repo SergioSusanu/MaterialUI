@@ -9,6 +9,7 @@ export const NavBarStyles = {
       width: drawerWidth,
       boxSizing: "border-box",
     },
+    backgroundColor: "gray"
   },
   icons: { color: AppStyles.Colors.PrimaryGreen },
   text: { color: AppStyles.Colors.PrimaryGreen, fontWeight:"700" },
