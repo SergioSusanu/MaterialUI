@@ -1,37 +1,32 @@
 import { Grid } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import CommonButton from '../components/common/commonButton/CommonButton';
+import Badge from "@mui/material/Badge";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import NotificationBell from '../components/common/notificationBell/NotificationBell';
+import BasicMenu from '../components/common/BasicMenu/BasicMenu';
 
 const About = () => {
+  const [open, setOpen] = useState(false)
+  const [anchorEl, setAnchorEl] = useState(null)
 
-  const buttonStyles = {
-    fontWeight:600,
-    textTransform:'capitalize',
-    borderRadius:2.5,
-    // '&.MuiButton-contained':{
-    //   backgroundColor: '#009be5',
-    //   '&:hover':{
-    //     backgroundColor:'#006db3'
-    //   }
-    // },
-    // '&.MuiButton-outlined':{
-    //   color:'#fff',
-    //   borderColor:'#fff',
-    //   '&.hover':{
-    //     backgroundColor:'transparent'
-    //   }
-    // }
+  const handleOpen = (e) => {
+    setAnchorEl(e.currentTarget)
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
   }
 
   return (
-    <div style={{ backgroundColor: "#009be5" }}>
-      Authentication
-      <CommonButton variant="contained" color="primary" sx={buttonStyles}>
-        Text
-      </CommonButton>
-      <CommonButton variant="outlined" color="secondary" sx={buttonStyles}>
-        Text2
-      </CommonButton>
+    <div>
+      <NotificationBell badgeContent="2" color="secondary"
+        onClick={handleOpen}
+        anchorEl={anchorEl}
+        handleClose={handleClose}
+        open={open}
+      />
     </div>
   );
 }

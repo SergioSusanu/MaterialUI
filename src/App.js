@@ -6,7 +6,7 @@ import { Grid } from "@mui/material";
 
 const SharedLayout = () => {
   return (
-    <Grid item xs={12} md={2}>
+    <Grid item xs={12} md={4}>
       <Navbar />
     </Grid>
   );
@@ -17,7 +17,7 @@ function App() {
   return (
     <Grid container>
       <SharedLayout />
-      <Grid item xs={12} md={10}>
+      <Grid item xs={12} md={8}>
         <Outlet />
       </Grid>
     </Grid>
