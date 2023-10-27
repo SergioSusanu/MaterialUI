@@ -3,7 +3,7 @@ import Badge from "@mui/material/Badge";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import { IconButton, Tooltip } from '@mui/material';
 import BasicMenu from '../BasicMenu/BasicMenu';
-
+import Avatar from "@mui/material/Avatar";
 
 const NotificationBell = ({color, onClick, anchorEl, handleClose, open}) => {
     const notifications = [

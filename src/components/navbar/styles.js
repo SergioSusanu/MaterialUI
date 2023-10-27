@@ -1,17 +1,28 @@
 import {AppStyles} from "../app/AppStyles";
 
- const drawerWidth = 240;
-
 export const NavBarStyles = {
   drawer: {
+    width: 320,
     flexShrink: 0,
     "& .MuiDrawer-paper": {
-      width: drawerWidth,
+      width: 320,
       boxSizing: "border-box",
+      backgroundColor: "#101F33",
+      color: "rgba(255, 255, 255, 0.7)",
     },
-    backgroundColor: "gray"
+    "& .Mui-selected": {
+      color: "red",
+    },
   },
-  icons: { color: AppStyles.Colors.PrimaryGreen },
-  text: { color: AppStyles.Colors.PrimaryGreen, fontWeight:"700" },
+  icons: {
+    color: "rgba(255, 255, 255, 0.7)!important",
+    marginLeft: "20px",
+  },
+  text: {
+    "& span": {
+      marginLeft: "-10px",
+      fontWeight: "600",
+      fontSize: "16px",
+    },
+  },
 };
-
