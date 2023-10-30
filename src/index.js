@@ -10,6 +10,7 @@ import Reservations from "./pages/Reservations";
 import Contact from "./pages/Contact";
 import { ThemeProvider } from '@mui/material/styles';
 import { dashboardTheme } from './dashboardTheme';
+import Authentication from './pages/Authentication';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route path="about" element={<About />} />
+          <Route path="authentication" element={<Authentication />} />
           <Route path="menu" element={<Menu />} />
           <Route path="order" element={<Order />} />
           <Route path="reservations" element={<Reservations />} />

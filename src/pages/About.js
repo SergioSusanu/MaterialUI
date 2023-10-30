@@ -8,7 +8,9 @@ import { Grid } from '@mui/material';
 const About = () => {
 
   return (
-    <Grid item xs={8} sx={{marginLeft:'320px'}}>About </Grid>
+     <Grid item xs={12} sx={{marginLeft:'320px'}}>About </Grid>
+    // <div style={{marginLeft:'320px'}}>About</div>
+  
   );
 }
 

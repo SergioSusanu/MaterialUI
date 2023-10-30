@@ -20,6 +20,12 @@ export const NavbarItems = [
     icon: <PeopleAltIcon />,
   },
   {
+    id: 7,
+    label: "Authentication",
+    route: "/authentication",
+    icon: <PeopleAltIcon />,
+  },
+  {
     id: 3,
     label: "Menu",
     route: "/menu",

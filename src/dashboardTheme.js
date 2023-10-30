@@ -9,39 +9,39 @@ export const dashboardTheme = createTheme({
         root: {
           // Some CSS
           fontSize: "0.875rem",
-          fontWeight:'600',
-          borderRadius:"9px",
-          textTransform:'none',
-          '&.MuiButton-contained':{
-            backgroundColor: '#009be5',
-            '&:hover':{
-              backgroundColor:'#006db3'
-            }
+          fontWeight: "600",
+          borderRadius: "9px",
+          textTransform: "none",
+          "&.MuiButton-contained": {
+            backgroundColor: "#009be5",
+            "&:hover": {
+              backgroundColor: "#006db3",
+            },
           },
-          '&.MuiButton-outlined':{
-            color:'#fff',
-            borderColor:'rgba(255,255,255,0.7)',
-            '&:hover':{
-              backgroundColor:'rgba(0,0,0,0.04)'
-            }
-          }
+          "&.MuiButton-outlined": {
+            color: "#fff",
+            borderColor: "rgba(255,255,255,0.7)",
+            "&:hover": {
+              backgroundColor: "rgba(0,0,0,0.04)",
+            },
+          },
         },
         contained: {
           fontSize: "1rem",
         },
       },
     },
-    MuiSvgIcon:{
-      styleOverrides:{
-        root:{
-          fontSize:'1.7rem'
-        }
-      }
-    }
+    MuiSvgIcon: {
+      styleOverrides: {
+        root: {
+          fontSize: "1.7rem",
+        },
+      },
+    },
   },
   palette: {
     primary: {
-      main: "#495E57",
+      main: "#009be5",
     },
     secondary: {
       main: "#F4CE14",
@@ -60,12 +60,14 @@ export const dashboardTheme = createTheme({
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
     ].join(","),
-    h1:{
-      fontSize:'1.6rem',
-      fontWeight:'600',
-      color:'$fff',
-      letterSpacing:'0.5px'
-    }
+    h1: {
+      fontSize: "1.6rem",
+      fontWeight: "600",
+      color: "$fff",
+      letterSpacing: "0.5px",
+      textTransform: "capitalize",
+    },
+    borderRadius: '19px'
   },
-  spacing:2
+  spacing: 2,
 });
