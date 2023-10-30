@@ -1,7 +1,4 @@
-import React from "react";
-import { dashboardTheme } from "../../../dashboardTheme";
-
-export const Styles = {
+export const modalStyles = {
   wrapper: {
     position: "absolute",
     top: "50%",

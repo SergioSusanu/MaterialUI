@@ -4,6 +4,7 @@ import CardSearchHeader from '../components/common/BasicCard/CardSearchHeader';
 import CardContentAuth from '../components/common/BasicCard/CardContentAuth';
 import GridWrapper from '../components/common/GridWrapper/GridWrapper';
 import BasicModal from '../components/common/BasicModal/BasicModal';
+import NewUserModal from '../components/NewUserModal';
 
 const Authentication = () => {
     const [open, setOpen] = React.useState(false);
@@ -16,7 +17,7 @@ const Authentication = () => {
           header={<CardSearchHeader handleClick={handleOpenModal}/>}
           content={<CardContentAuth />}
         />
-        <BasicModal open={open} handleClose={handleCloseModal} />
+        <NewUserModal open={open} handleClose={handleCloseModal} />
       </GridWrapper>
   );
 }
