@@ -1,8 +1,11 @@
 import React from 'react'
 import BasicModal from './common/BasicModal/BasicModal'
-import { Box, Input } from '@mui/material';
+import { Box, Input, TextField } from '@mui/material';
 import { modalStyles } from './common/BasicModal/styles';
 import CommonButton from './common/CommonButton/CommonButton';
+import {useForm} from 'react-hook-form'
+import {yupResolver} from '@hookform/resolvers/yup'
+import * as Yup from 'yup'
 
 const NewUserModal = ({open, handleClose}) => {
 
@@ -10,25 +13,57 @@ const NewUserModal = ({open, handleClose}) => {
         return (
           <>
             <Box sx={modalStyles.inputs}>
-              <Input placeholder="Email" />
-              <Input placeholder="Phone number" />
-              <Input placeholder="User id" />
-            </Box>
-            <Box sx={modalStyles.buttons}>
-              <CommonButton
-                size="large"
-                variant="contained"
-                //   sx={{ backgroundColor: theme.palette.primary.main }}
-                //   handleClick={handleClick}
-              >
-                Submit
-              </CommonButton>
-              <CommonButton variant="contained" handleClick={handleClose}>
-                Cancel
-              </CommonButton>
+              <TextField
+                name="email"
+                label="Email"
+                required
+                {...register('email')}
+                error={errors.email ? true : false}
+                helperText={errors.email?.message}
+              />
+              <TextField
+                name="phoneNumber"
+                label="Phone number"
+                required
+                {...register('phoneNumber')}
+                error={errors.phoneNumber ? true : false}
+                helperText={errors.phoneNumber?.message}
+              />
+              <TextField
+                name="userId"
+                label="User ID"
+                required
+                {...register('userId')}
+                error={errors.userId ? true : false}
+                helperText={errors.userId?.message}
+              />
             </Box>
           </>
         );
+    }
+
+    const validationSchema = Yup.object().shape({
+      userId: Yup.string()
+        .required('User ID is required')
+        .min(6, "user id has to be minimum 6 characters"),
+      email: Yup.string()
+        .required("Email is required")
+        .email("Please enter a valid email"),
+      phoneNumber: Yup.string()
+        .required("Phone is required")
+        // .matches(phoneRegex, "Phone number is not valid")
+    })
+
+    const {
+      register,
+      handleSubmit,
+      formState:{errors}
+    } = useForm({
+      resolver:yupResolver(validationSchema)
+    })
+
+    const addUser = (data)=>{
+      console.log(data);
     }
 
   return (
@@ -38,6 +73,7 @@ const NewUserModal = ({open, handleClose}) => {
       title="Add new user"
       subTitle="Fill out the inputs and hit the 'submit'button"
       contents={getContent()}
+      onSubmit={handleSubmit(addUser)}
     ></BasicModal>
   );
 }

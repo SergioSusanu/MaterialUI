@@ -1,25 +1,18 @@
 import React from 'react'
 import Button from "@mui/material/Button";
 
-const CommonButton = ({
-  children,
-  color,
-  disable,
-  sx,
-  variant,
-  size,
-  handleClick,
-}) => {
+const CommonButton = (props) => {
   return (
     <Button
-      color={color}
-      disable={disable}
-      sx={sx}
-      size={size}
-      variant={variant}
-      onClick={handleClick}
+      color={props.color}
+      disable={props.disable}
+      sx={props.sx}
+      size={props.size}
+      variant={props.variant}
+      onClick={props.onClick}
+      {...props}
     >
-      {children}
+      {props.children}
     </Button>
   );
 };

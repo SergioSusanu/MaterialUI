@@ -37,7 +37,7 @@ const CardSearchHeader = ({ handleClick }) => {
           size="large"
           variant="outlined"
           sx={{ backgroundColor: theme.palette.primary.main }}
-          handleClick={handleClick}
+          onClick={handleClick}
         >
           Add user
         </CommonButton>
