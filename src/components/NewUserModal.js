@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BasicModal from './common/BasicModal/BasicModal'
 import { Box, Input, TextField } from '@mui/material';
 import { modalStyles } from './common/BasicModal/styles';
@@ -9,6 +9,15 @@ import * as Yup from 'yup'
 
 const NewUserModal = ({open, handleClose}) => {
 
+    const initialValues = {email:'', phoneNumber:'', userId:''}
+    const [values, setValues] = useState(initialValues)
+
+    const handleChange = (e) =>{
+      const name = e.target.name;
+      const val =e.target.value
+      setValues((prevValues) => ({...prevValues, [name]:val}))
+    }
+
     const getContent = () =>{
         return (
           <>
@@ -17,30 +26,38 @@ const NewUserModal = ({open, handleClose}) => {
                 name="email"
                 label="Email"
                 required
-                {...register('email')}
+                {...register("email")}
                 error={errors.email ? true : false}
                 helperText={errors.email?.message}
+                value={values.email}
+                onChange={handleChange}
               />
               <TextField
                 name="phoneNumber"
                 label="Phone number"
                 required
-                {...register('phoneNumber')}
+                {...register("phoneNumber")}
                 error={errors.phoneNumber ? true : false}
                 helperText={errors.phoneNumber?.message}
+                value={values.phoneNumber}
+                onChange={handleChange}
               />
               <TextField
                 name="userId"
                 label="User ID"
                 required
-                {...register('userId')}
+                {...register("userId")}
                 error={errors.userId ? true : false}
                 helperText={errors.userId?.message}
+                value={values.userId}
+                onChange={handleChange}
               />
             </Box>
           </>
         );
     }
+
+
 
     const validationSchema = Yup.object().shape({
       userId: Yup.string()
@@ -51,7 +68,7 @@ const NewUserModal = ({open, handleClose}) => {
         .email("Please enter a valid email"),
       phoneNumber: Yup.string()
         .required("Phone is required")
-        // .matches(phoneRegex, "Phone number is not valid")
+        //  .matches(phoneRegex, "Phone number is not valid")
     })
 
     const {
@@ -64,6 +81,8 @@ const NewUserModal = ({open, handleClose}) => {
 
     const addUser = (data)=>{
       console.log(data);
+      setValues(initialValues)
+      handleClose()
     }
 
   return (
