@@ -7,7 +7,7 @@ import {useForm} from 'react-hook-form'
 import {yupResolver} from '@hookform/resolvers/yup'
 import * as Yup from 'yup'
 
-const NewUserModal = ({open, handleClose}) => {
+const NewUserModal = ({open, handleClose, addNewUser}) => {
 
     const initialValues = {email:'', phoneNumber:'', userId:''}
     const [values, setValues] = useState(initialValues)
@@ -80,9 +80,9 @@ const NewUserModal = ({open, handleClose}) => {
     })
 
     const addUser = (data)=>{
-      console.log(data);
       setValues(initialValues)
       handleClose()
+      addNewUser(data)
     }
 
   return (

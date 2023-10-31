@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import BasicCard from '../components/common/BasicCard/BasicCard';
 import CardSearchHeader from '../components/common/BasicCard/CardSearchHeader';
 import CardContentAuth from '../components/common/BasicCard/CardContentAuth';
@@ -8,16 +8,37 @@ import NewUserModal from '../components/NewUserModal';
 
 const Authentication = () => {
     const [open, setOpen] = React.useState(false);
+    const [users, setUsers] = useState([]);
+    const [filteredUsers, setFilteredUsers] = useState(users)
     const handleOpenModal = () => setOpen(true);
     const handleCloseModal = () => setOpen(false);
+
+    const addNewUser = (data) => {
+     users.push({...data})
+    }
+
+    const filterUsers = (data) => {
+      const searchTerm = data.toString().toLowerCase().trim()
+      if (searchTerm === '') {setFilteredUsers(users)}
+      else {
+        const filteredData = users.filter((user) => {
+          return Object.keys(user).some((key) =>
+          user[key].toString().toLowerCase().includes(searchTerm))
+        })
+        setFilteredUsers(filteredData)
+      }
+    }
 
   return (
       <GridWrapper>
         <BasicCard
-          header={<CardSearchHeader handleClick={handleOpenModal}/>}
-          content={<CardContentAuth />}
+          header={<CardSearchHeader handleClick={handleOpenModal}
+          handleSearch={filterUsers}
+          />}
+          content={<CardContentAuth users={filteredUsers}/>}
         />
-        <NewUserModal open={open} handleClose={handleCloseModal} />
+        <NewUserModal open={open} handleClose={handleCloseModal}
+        addNewUser={addNewUser} />
       </GridWrapper>
   );
 }

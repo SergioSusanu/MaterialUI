@@ -5,7 +5,7 @@ import { Box, Grid, IconButton } from "@mui/material";
 import SearchBar from "../SearchBar/SearchBar";
 import CommonButton from "../CommonButton/CommonButton";
 
-const CardSearchHeader = ({ handleClick }) => {
+const CardSearchHeader = ({ handleClick, handleSearch }) => {
   const theme = useTheme();
 
   const Styles = {
@@ -20,7 +20,7 @@ const CardSearchHeader = ({ handleClick }) => {
   };
 
   const handleChange = (value) => {
-    console.log(value);
+    handleSearch(value)
   };
 
   return (
