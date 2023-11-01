@@ -2,6 +2,8 @@ import React from 'react'
 import GridWrapper from '../components/common/GridWrapper/GridWrapper'
 import BasicSnackBar from '../components/common/BasicSnackBar/BasicSnackBar'
 import CommonButton from '../components/common/CommonButton/CommonButton';
+import DataTable from '../components/common/DataTable/DataTable';
+import UsersTable from '../components/common/UsersTable/UsersTable';
 
 const Menu = () => {
 
@@ -26,9 +28,10 @@ const Menu = () => {
         Open success snackbar
       </CommonButton>
       <BasicSnackBar open={open} handleClose={handleClose}
-      severity="success"
-      message="Sergio's the best"
+      severity="error"
+      message="Couldn't fetch data"
       />
+      <UsersTable onFetchError={() => setOpen(true)} />
     </GridWrapper>
   );
 }
